@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SEMS - List </title>
+<meta charset="UTF-8">
+
+<style>
+#memberTable {
+border: 1px solid DarkKhaki;
+}
+</style>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+</head>
+<body>
+<h1>과목 정보</h1>
+<table id='subjectTable'>
+  <tr>
+    <th>번호</th>
+    <th>과목명</th>
+  </tr>
+</table>
+
+<script>
+"use strict";
+
+var subjects = { "data": [
+  { "no": "108", "description":"시험 과목 테스트"},
+  { "no": "103", "description":"C 기초98"}
+]};
+
+ var subjectTable = $("#subjectTable");
+
+
+var tr = null, td = null;
+subjects.forEach(function(subject) {
+    	   tr = document.createElement('tr');
+    	   tr.setAttribute('class', 'dataRow');
+    	   [subject.data.no,
+    	    subject.description].forEach(function(value){
+    	    	td = document.createElement('td');
+    	    	td.innerHTML = value;
+    	    	tr.appendChild(td);
+    	    });
+    	   
+    	   subjectTable.append(tr);
+       });
+</script>
+</body>
+</html>
